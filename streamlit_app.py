@@ -3,10 +3,9 @@ import pydeck as pdk
 from geographiclib.geodesic import Geodesic
 from geopy.geocoders import Nominatim
 from geopy.exc import GeocoderTimedOut
-import math
 
 # Set Mapbox API key for accessing Mapbox basemaps
-st.mapbox_api_key = "<your_mapbox_token>"  # Replace with your Mapbox token
+st.set_option('mapbox.token', "<your_mapbox_token>")  # Replace with your Mapbox token
 
 # Fungsi untuk menghitung lintasan besar
 @st.cache_data
