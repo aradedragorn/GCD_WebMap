@@ -134,7 +134,7 @@ if st.sidebar.button("Hitung"):
     r = pdk.Deck(
         layers=[point_layer, pin_layer, path_layer],
         initial_view_state=view_state,
-        map_style="mapbox://styles/mapbox/streets-satellite-v9",  # This style shows road names
+        map_style="mapbox://styles/mapbox/streets-v11",  # This style shows road names
         tooltip={"text": "{name}"}
     )
 
