@@ -3,9 +3,7 @@ import pydeck as pdk
 from geographiclib.geodesic import Geodesic
 from geopy.geocoders import Nominatim
 from geopy.exc import GeocoderTimedOut
-
-# Set Mapbox API key for accessing Mapbox basemaps
-st.set_option('mapbox.token', "<your_mapbox_token>")  # Replace with your Mapbox token
+import math
 
 # Fungsi untuk menghitung lintasan besar
 @st.cache_data
@@ -127,13 +125,13 @@ if st.sidebar.button("Hitung"):
     )
 
     # Globe Map View dengan efek Elevasi 3D
-    view_state = pdk.ViewState(latitude=(start_lat + end_lat) / 2, longitude=(start_lon + end_lon) / 2, zoom=12, pitch=60)
+    view_state = pdk.ViewState(latitude=(start_lat + end_lat) / 2, longitude=(start_lon + end_lon) / 2, zoom=2, pitch=60)
 
     # Pydeck Map
     r = pdk.Deck(
         layers=[point_layer, pin_layer, path_layer],
         initial_view_state=view_state,
-        map_style="mapbox://styles/mapbox/standard-satellite",  # Set to standard satellite style
+        map_style="mapbox://styles/mapbox/satellite-streets-v12",
         tooltip={"text": "{name}"}
     )
 
