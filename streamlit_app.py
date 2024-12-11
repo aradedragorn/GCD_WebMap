@@ -5,9 +5,6 @@ from geopy.geocoders import Nominatim
 from geopy.exc import GeocoderTimedOut
 import math
 
-# Set Mapbox API key for accessing Mapbox basemaps
-st.set_option("mapbox.api_key", "<your_mapbox_token>")
-
 # Fungsi untuk menghitung lintasan besar
 @st.cache_data
 def calculate_great_circle_path(lat1, lon1, lat2, lon2, segments=100):
@@ -128,13 +125,13 @@ if st.sidebar.button("Hitung"):
     )
 
     # Globe Map View dengan efek Elevasi 3D
-    view_state = pdk.ViewState(latitude=(start_lat + end_lat) / 2, longitude=(start_lon + end_lon) / 2, zoom=12, pitch=60)
+    view_state = pdk.ViewState(latitude=(start_lat + end_lat) / 2, longitude=(start_lon + end_lon) / 2, zoom=2, pitch=60)
 
     # Pydeck Map
     r = pdk.Deck(
         layers=[point_layer, pin_layer, path_layer],
         initial_view_state=view_state,
-        map_style="mapbox://styles/mapbox/streets-v11",  # This style shows road names
+        map_style="mapbox://styles/mapbox/satellite-v9",
         tooltip={"text": "{name}"}
     )
 
