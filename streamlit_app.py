@@ -127,11 +127,11 @@ if st.sidebar.button("Hitung"):
     # Globe Map View dengan efek Elevasi 3D
     view_state = pdk.ViewState(latitude=(start_lat + end_lat) / 2, longitude=(start_lon + end_lon) / 2, zoom=2, pitch=60)
 
-    # Pydeck Map
+    # Pydeck Map dengan Globe tanpa Mapbox
     r = pdk.Deck(
         layers=[point_layer, pin_layer, path_layer],
         initial_view_state=view_state,
-        map_style="mapbox://styles/mapbox/satellite-streets-v12",
+        map_style=None,  # Menghilangkan Mapbox dan menggunakan Globe
         tooltip={"text": "{name}"}
     )
 
